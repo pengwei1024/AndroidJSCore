@@ -1,0 +1,53 @@
+{
+  "buildFiles": [
+    "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Android.mk",
+    "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/pengwei/Android/android-ndk/android-ndk-r11c/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/build/intermediates/ndkBuild/debug/lib clean"
+  ],
+  "libraries": {
+    "android-js-core-debug-x86": {
+      "buildCommand": "/Users/pengwei/Android/android-ndk/android-ndk-r11c/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/pengwei/git/AndroidJSCore/androidjscore/build/intermediates/ndkBuild/debug/lib /Users/pengwei/git/AndroidJSCore/androidjscore/build/intermediates/ndkBuild/debug/obj/local/x86/libandroid-js-core.so",
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "android-js-core",
+      "files": [
+        {
+          "src": "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/Instance.cpp",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector-strong\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include/backward\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-std\u003dc++11\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/include\" \"-fexceptions\" \"-isystem\" \"/Users/pengwei/Android/android-ndk/android-ndk-r11c/platforms/android-14/arch-x86/usr/include\""
+        },
+        {
+          "src": "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/JSContext.cpp",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector-strong\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include/backward\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-std\u003dc++11\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/include\" \"-fexceptions\" \"-isystem\" \"/Users/pengwei/Android/android-ndk/android-ndk-r11c/platforms/android-14/arch-x86/usr/include\""
+        },
+        {
+          "src": "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/JSFunction.cpp",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector-strong\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include/backward\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-std\u003dc++11\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/include\" \"-fexceptions\" \"-isystem\" \"/Users/pengwei/Android/android-ndk/android-ndk-r11c/platforms/android-14/arch-x86/usr/include\""
+        },
+        {
+          "src": "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/JSObject.cpp",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector-strong\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include/backward\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-std\u003dc++11\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/include\" \"-fexceptions\" \"-isystem\" \"/Users/pengwei/Android/android-ndk/android-ndk-r11c/platforms/android-14/arch-x86/usr/include\""
+        },
+        {
+          "src": "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/JSString.cpp",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector-strong\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include/backward\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-std\u003dc++11\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/include\" \"-fexceptions\" \"-isystem\" \"/Users/pengwei/Android/android-ndk/android-ndk-r11c/platforms/android-14/arch-x86/usr/include\""
+        },
+        {
+          "src": "/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/JSValue.cpp",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector-strong\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include\" \"-I/Users/pengwei/Android/android-ndk/android-ndk-r11c/sources/cxx-stl/gnu-libstdc++/4.9/include/backward\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-std\u003dc++11\" \"-I/Users/pengwei/git/AndroidJSCore/androidjscore/src/main/jni/include\" \"-fexceptions\" \"-isystem\" \"/Users/pengwei/Android/android-ndk/android-ndk-r11c/platforms/android-14/arch-x86/usr/include\""
+        }
+      ],
+      "output": "/Users/pengwei/git/AndroidJSCore/androidjscore/build/intermediates/ndkBuild/debug/obj/local/x86/libandroid-js-core.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86": {
+      "cppCompilerExecutable": "/Users/pengwei/Android/android-ndk/android-ndk-r11c/toolchains/x86-4.9/prebuilt/darwin-x86_64/bin/i686-linux-android-g++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
