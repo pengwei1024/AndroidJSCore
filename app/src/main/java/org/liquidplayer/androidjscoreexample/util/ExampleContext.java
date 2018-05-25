@@ -1,5 +1,5 @@
 //
-// IExampleContext.java
+// ExampleContext.java
 // AndroidJSCore project
 //
 // https://github.com/ericwlange/AndroidJSCore/
@@ -30,8 +30,46 @@
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.liquidplayer.androidjscoreexample;
+package org.liquidplayer.androidjscoreexample.util;
 
-public interface IExampleContext {
-	void log(String msg);
+import org.liquidplayer.webkit.javascriptcore.JSContext;
+import org.liquidplayer.webkit.javascriptcore.JSException;
+
+import android.widget.TextView;
+import android.os.Handler;
+import android.os.Looper;
+
+public class ExampleContext extends JSContext implements IExampleContext {
+
+	public ExampleContext(TextView tv) throws JSException {
+		super(IExampleContext.class);
+		this.tv = tv;
+	}
+	
+	private final TextView tv;
+	private String log = "";
+
+	public void clear() {
+		log = "";
+		tv.setText(log);
+	}
+	
+	@Override
+	public void log(String msg) {
+		final String message = msg;
+		Handler handler = new Handler(Looper.getMainLooper());
+		handler.post(
+				new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						log = log.concat(message);
+						log = log.concat("\n");
+						tv.setText(log);
+					}
+				}
+		);
+	}
+
 }

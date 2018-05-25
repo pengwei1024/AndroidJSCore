@@ -30,8 +30,10 @@
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.liquidplayer.androidjscoreexample;
+package org.liquidplayer.androidjscoreexample.action;
 
+import org.liquidplayer.androidjscoreexample.util.ExampleContext;
+import org.liquidplayer.androidjscoreexample.util.IExample;
 import org.liquidplayer.webkit.javascriptcore.JSContext;
 import org.liquidplayer.webkit.javascriptcore.JSException;
 import org.liquidplayer.webkit.javascriptcore.JSFunction;

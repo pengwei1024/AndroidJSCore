@@ -20,6 +20,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.liquidplayer.androidjscoreexample.action.AsyncExample;
+import org.liquidplayer.androidjscoreexample.action.ExceptionHandlingExample;
+import org.liquidplayer.androidjscoreexample.action.OwenMatthewsExample;
+import org.liquidplayer.androidjscoreexample.action.SharingFunctionsExample;
+import org.liquidplayer.androidjscoreexample.util.ExampleContext;
+import org.liquidplayer.androidjscoreexample.util.IExample;
 import org.liquidplayer.webkit.javascriptcore.JSException;
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {

@@ -1,5 +1,5 @@
 //
-// IExample.java
+// IExampleContext.java
 // AndroidJSCore project
 //
 // https://github.com/ericwlange/AndroidJSCore/
@@ -30,10 +30,8 @@
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.liquidplayer.androidjscoreexample;
+package org.liquidplayer.androidjscoreexample.util;
 
-import org.liquidplayer.webkit.javascriptcore.JSException;
-
-public interface IExample {
-	void run() throws JSException;
+public interface IExampleContext {
+	void log(String msg);
 }
