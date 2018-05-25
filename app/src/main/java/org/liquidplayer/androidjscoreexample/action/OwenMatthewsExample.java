@@ -47,6 +47,7 @@ public class OwenMatthewsExample implements IExample {
     public OwenMatthewsExample(ExampleContext ctx) {
         context = ctx;
     }
+
     private final ExampleContext context;
 
     // In Owen's section "Wrapping Up", he describes how to expose and control properties and functions
@@ -59,55 +60,71 @@ public class OwenMatthewsExample implements IExample {
     //
     // Although the setup is a bit wonkier, as you can see in the example below, the usage of these two
     // 'Thing' objects is identical.
-	
+
     // In Java                                          // In Objective-C
     //------------------------------------------------  // -------------------------------------------------------
     public interface ExportJSFunctions {
         String toString();
     }
-    public interface Property {                         // @protocol ThingJSExports <JSExport>
-        void set(Object value)                          // @property (nonatomic, copy) NSString *name;
-                throws JSException;                     // @end
-        Object get() throws JSException;     	        //
-    }                                                   // @interface Thing : NSObject <ThingJSExports>
-    public class Thing extends JSObject                 // @property (nonatomic, copy) NSString *name;
-    implements ExportJSFunctions {
-        private class ThingJSExports                    // @property (nonatomic) NSInteger number;
-        implements Property {                           // @end
-            ThingJSExports(String name) {               //
-                this.name = name; }                     // @implementation Thing
-            private final String name;                  // - (NSString *)description {
-            public void set(Object value)               // return [NSString stringWithFormat:@"%@: %d", self.name,
-                    throws JSException {                //     self.number];
-                property(name,value); }                 // }
-            public Object get()                         // @end
-                    throws JSException {
-                return property(name); }
+
+    public interface Property {
+        void set(Object value) throws JSException;
+
+        Object get() throws JSException;
+    }
+
+    public class Thing extends JSObject implements ExportJSFunctions {
+
+        private class ThingJSExports implements Property {
+            private final String name;
+
+            ThingJSExports(String name) {
+                this.name = name;
+            }
+
+            public void set(Object value) throws JSException {
+                property(name, value);
+            }
+
+            public Object get() throws JSException {
+                return property(name);
+            }
         }
-        private class ThingIsPrivate 
-        implements Property {
-            ThingIsPrivate() {}
+
+        private class ThingIsPrivate implements Property {
             private Object value;
-            public void set(Object value) throws JSException { this.value = value; }
-            public Object get() throws JSException { return value; }
+
+            ThingIsPrivate() {
+            }
+
+            public void set(Object value) throws JSException {
+                this.value = value;
+            }
+
+            public Object get() throws JSException {
+                return value;
+            }
         }
-		
+
         final Property name;
         final Property number;
-		
+
         public Thing(JSContext ctx) throws JSException {
-            super(ctx,ExportJSFunctions.class);
+            super(ctx, ExportJSFunctions.class);
             name = new ThingJSExports("name");
             number = new ThingIsPrivate();
         }
+
         @Override
         public String toString() {
             try {
                 return name.get() + ": " + number.get();
-            } catch (JSException e) { return null; }
+            } catch (JSException e) {
+                return null;
+            }
         }
     }
-	
+
     /*
      * To get the most out of this example, it is best to read along with Owen Matthews' excellent
      * blog post introducing JavaScriptCore in iOS 7.  The following example follows his article
@@ -115,7 +132,7 @@ public class OwenMatthewsExample implements IExample {
      */
     public void run() throws JSException {
         context.clear();
-		
+
         context.log("Share And Share Alike");
         context.log("---------------------");
         // In Java                                          // In Objective-C
@@ -125,11 +142,11 @@ public class OwenMatthewsExample implements IExample {
         double a = aValue.toNumber();                       // double a = [aValue toDouble];
         DecimalFormat df = new DecimalFormat(".#");         // NSLog(@"%.0f", a);
         context.log(df.format(a));
-		
+
         context.evaluateScript("a = 10");                   // [context evaluateScript:@"a = 10"];
         JSValue newAValue = context.property("a");          // JSValue newAValue = context[@"a"];
         context.log(df.format(newAValue.toNumber()));       // NSLog(@"%.0f", [newAValue toDouble]);
-		
+
         context.log("");
         context.log("Functional Execution");
         context.log("--------------------");
@@ -145,25 +162,25 @@ public class OwenMatthewsExample implements IExample {
         JSValue nineSquared = squareFunction.toFunction().  // JSValue *nineSquared = [squareFunction
                 call(null, 9);                              //     callWithArguments:@[@9]];
         context.log("9^2: ".concat(nineSquared.toString()));// NSLog(@"9^2: %@", nineSquared);
-		
+
         context.property("factorial",                       // context[@"factorial"] = ^(int x) {
-            new JSFunction(context,"factorial") {           //
-                @SuppressWarnings("unused")                 //
-                public Integer factorial(Integer x) {       //
-                    int factorial = 1;                      //     int factorial = 1;
-                    for (; x > 1; x--) {                    //     for (; x > 1; x--) {
-                        factorial *= x;                     //         factorial *= x;
-                    }                                       //     }
-                    return factorial;                       //     return factorial;
-                }                                           // };
-        });
+                new JSFunction(context, "factorial") {           //
+                    @SuppressWarnings("unused")                 //
+                    public Integer factorial(Integer x) {       //
+                        int factorial = 1;                      //     int factorial = 1;
+                        for (; x > 1; x--) {                    //     for (; x > 1; x--) {
+                            factorial *= x;                     //         factorial *= x;
+                        }                                       //     }
+                        return factorial;                       //     return factorial;
+                    }                                           // };
+                });
         context.evaluateScript(                             // [context evaluateScript:
                 "var fiveFactorial = factorial(5);");       //     @"var fiveFactorial = factorial(5);"];
         JSValue fiveFactorial =                             // JSValue *fiveFactorial = context[@"fiveFactorial"];
                 context.property("fiveFactorial");
         context.log("5! = ".concat(                         // NSLog(@"5! = %@", fiveFactorial);
                 fiveFactorial.toString()));
-		
+
         context.log("");
         context.log("Wrapping Up");
         context.log("--------------------");
@@ -172,18 +189,18 @@ public class OwenMatthewsExample implements IExample {
         Thing thing = new Thing(context);                   // Thing *thing = [[Thing alloc] init];
         thing.name.set("Alfred");                           // thing.name = @"Alfred";
         thing.number.set(3);                                // thing.number = 3;
-        context.property("thing",thing);                    // context[@"thing"] = thing;
+        context.property("thing", thing);                    // context[@"thing"] = thing;
         JSValue thingValue = context.property("thing");     // JSValue *thingValue = context[@"thing"];
         context.log("Thing: " + thing);                     // NSLog(@"Thing: %@", thing);
         context.log("Thing JSValue: " + thingValue);        // NSLog(@"Thing JSValue: %@", thingValue);
-		
+
         thing.name.set("Betty");                            // thing.name = @"Betty";
         thing.number.set(8);                                // thing.number = 8;
         context.log("Thing: " + thing);                     // NSLog(@"Thing: %@", thing);
         context.log("Thing JSValue: " + thingValue);        // NSLog(@"Thing JSValue: %@", thingValue);
-        
+
         context.evaluateScript(                             // [context evaluateScript:
-            "thing.name = \"Carlos\"; thing.number = 5");   //     @"thing.name = \"Carlos\"; thing.number = 5"];
+                "thing.name = \"Carlos\"; thing.number = 5");   //     @"thing.name = \"Carlos\"; thing.number = 5"];
         context.log("Thing: " + thing);                     // NSLog(@"Thing: %@", thing);
         context.log("Thing JSValue: " + thingValue);        // NSLog(@"Thing JSValue: %@", thingValue);
     }
